@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>App 1</title>
+    <style>
+        body {
+            background-color: lavender;
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+    <h1>App 1</h1>
+    <p>This is the first micro-frontend application</p>
+    <button id="sendMessageBtn">Send Message to Shell</button>
+    <script>
+        const messageButton = document.getElementById("sendMessageBtn");
+        messageButton.addEventListener('click', () => {
+            const message = {
+                type: "ALERT",
+                message: "Hello from App 1!"
+            };
+            window.parent.postMessage(message, "*");
+        });
+    </script>
+</body>
+</html>
